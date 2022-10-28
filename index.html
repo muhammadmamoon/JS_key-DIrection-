@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<style>
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+
+<body>
+    <h1>Press "piaic" in lowerCase on your Keyboard And check the Awesome Picture On your Screen</h1>
+    <script>
+        const pressed = [];
+        const secreatCode = "piaic";
+        window.addEventListener("keyup", (e) => {
+            console.log(e.key);
+            pressed.push(e.key);
+            pressed.splice(-secreatCode.length - 1, pressed.length - secreatCode.length);
+            if (pressed.join('').includes(secreatCode)) {
+                console.log("DING DING");
+                cornify_add();
+            }
+
+            console.log(pressed)
+        })
+    </script>
+</body>
+
+</html>
